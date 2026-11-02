@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f0">
+    <title>Emotion Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Emotion Detector home">
+          <span class="mark" aria-hidden="true">E</span>
+          <span>Emotion Detector</span>
+        </a>
+        <span class="service-status"><span aria-hidden="true"></span> Watson NLP</span>
+      </header>
+
+      <section class="analyzer" aria-labelledby="page-title">
+        <p class="eyebrow">LANGUAGE ANALYSIS <span> / </span> 01</p>
+        <h1 id="page-title">What’s the feeling<br>behind the words?</h1>
+        <p class="intro">Enter a statement to see the emotions it carries.</p>
+
+        <form id="emotion-form">
+          <label for="statement">Your statement</label>
+          <textarea id="statement" name="textToAnalyze" rows="5" maxlength="2000" placeholder="I am really happy about this..."></textarea>
+          <div class="form-footer">
+            <span id="character-count">0 / 2000</span>
+            <button type="submit" id="analyze-button">
+              <span>Analyze emotion</span>
+              <span class="button-arrow" aria-hidden="true">&#8599;</span>
+            </button>
+          </div>
+        </form>
+
+        <section id="result" class="result" aria-live="polite" hidden>
+          <div class="result-heading">
+            <div>
+              <p class="eyebrow">ANALYSIS RESULT</p>
+              <h2 id="dominant-emotion"></h2>
+            </div>
+            <span class="result-icon" aria-hidden="true">&#10003;</span>
+          </div>
+          <p id="result-message" class="result-message"></p>
+        </section>
+        <p id="error-message" class="error-message" role="alert" hidden></p>
+      </section>
+
+      <footer class="page-footer">
+        <span>EMOTION DETECTOR</span>
+        <span>ANGER · DISGUST · FEAR · JOY · SADNESS</span>
+      </footer>
+    </main>
+  </body>
+</html>
